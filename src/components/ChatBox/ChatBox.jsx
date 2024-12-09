@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Chatbox.css";
+import "./ChatBox.css";
 import assets from "../../assets/assets";
 import { AppContext } from "../../context/AppContext";
 import { arrayUnion, doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
@@ -7,7 +7,7 @@ import { db } from "../../config/firebase";
 import upload from "../../lib/upload";
 
 
-const Chatbox = () => {
+const ChatBox = () => {
     const { userData, messagesId, chatUser, messages, setMessages,chatVisible, setChatVisible } =
         useContext(AppContext);
 
@@ -157,4 +157,4 @@ const Chatbox = () => {
     )
 }
 
-export default Chatbox;
+export default ChatBox;
