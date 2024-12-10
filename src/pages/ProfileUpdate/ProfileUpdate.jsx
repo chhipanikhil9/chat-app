@@ -43,11 +43,9 @@ const ProfileUpdate = () => {
 
   const ProfileUpdate = async (event) => {
     event.preventDefault();
-    console.log("probile update function called");
     try {
       if (!prevImage && !image) {
         toast.error("Upload profile picture");
-        return;
       } 
       const docRef = doc(db,'users',uid);
 
