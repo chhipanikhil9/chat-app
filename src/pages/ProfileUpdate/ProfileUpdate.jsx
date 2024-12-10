@@ -68,6 +68,7 @@ const ProfileUpdate = () => {
       }
       const snap = await getDoc(docRef);
       setUserData(snap.data());
+      console.log("profile uploaded");
       navigate("/chat");
     } catch (error) {
       console.error(error);
