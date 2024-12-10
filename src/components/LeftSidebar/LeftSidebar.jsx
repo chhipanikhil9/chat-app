@@ -3,7 +3,7 @@ import "./LeftSidebar.css";
 import assets from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore";
-import { db } from "../../config/firebase";
+import { auth, db, logout } from "../../config/firebase";
 import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
 
@@ -141,10 +141,6 @@ const LeftSidebar = () => {
     }
   };
 
-  const logoutHandler = async () => {
-    await auth.signOut();
-    navigate("/");
-  };
 
   useEffect(()=>{
     const updateChatUserData = async()=>{
@@ -168,7 +164,7 @@ const LeftSidebar = () => {
             <div className="sub-menu">
               <p onClick={() => navigate("/profile")}>Edit Profile</p>
               <hr />
-              <p onClick={logoutHandler}>Logout</p>
+              <p onClick={()=>logout()}>Logout</p>
             </div>
           </div>
         </div>
