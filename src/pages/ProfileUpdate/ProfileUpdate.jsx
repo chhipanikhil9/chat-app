@@ -46,14 +46,12 @@ const ProfileUpdate = () => {
     try {
       if (!prevImage && !image) {
         toast.error("Upload profile picture");
-        return;
       } 
       const docRef = doc(db,'users',uid);
 
       if(image){
         const imgUrl = await upload(image);
         setPrevImage(imgUrl);
-
         await updateDoc(docRef,{
           avatar: imgUrl,
           bio: bio,
